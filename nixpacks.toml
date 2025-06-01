@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python39", "ffmpeg"]
+
+[phases.build]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.start]
+cmd = "python3 bot.py"
