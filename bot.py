@@ -101,7 +101,7 @@ def on_close(ws, close_status_code, close_msg):
     logger.info("Conexión WebSocket cerrada")
 
 def start_websocket():
-    ws = websocket.WebSocketApp("ws://localhost:8080",
+    ws = websocket.WebSocketApp("ws://tiktok-websocket:8080"",
                                on_message=on_message,
                                on_error=on_error,
                                on_close=on_close)
