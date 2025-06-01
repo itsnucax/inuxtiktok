@@ -1,8 +1,12 @@
 [phases.setup]
-nixPkgs = ["python39", "ffmpeg"]
+nixPkgs = ["python39", "nodejs", "ffmpeg"]  # Incluye Node.js y ffmpeg (necesario para Python)
 
-[phases.build]
-cmds = ["pip install -r requirements.txt"]
+[phases.install]
+cmds = [
+    "pip install -r requirements.txt",  # Instala dependencias de Python
+    "npm ci"                            # Instala dependencias de Node.js
+]
+dependsOn = ["setup"]
 
 [phases.start]
-cmd = "python3 bot.py"
+cmd = "bash start.sh"                   # Usa un script para iniciar ambas apps
